@@ -1,0 +1,75 @@
+@use "sass:map";
+
+/**
+ * Layout breakpoints - Enhanced for better responsive design
+ * $mobile-small: small phones (320-480px)
+ * $mobile: phones and small tablets (480-768px)
+ * $tablet: tablets and small laptops (768-1024px)
+ * $desktop: desktop and larger screens (1024px+)
+ * $desktop-large: large desktop screens (1400px+)
+ */
+$breakpoints: (
+  mobile-small: 480px,
+  mobile: 768px,
+  tablet: 1024px,
+  desktop: 1200px,
+  desktop-large: 1400px,
+);
+
+// Media query mixins for better responsive design
+$mobile-small: "(max-width: #{map.get($breakpoints, mobile-small)})";
+$mobile: "(max-width: #{map.get($breakpoints, mobile)})";
+$mobile-up: "(min-width: #{map.get($breakpoints, mobile) + 1px})";
+$tablet: "(min-width: #{map.get($breakpoints, mobile) + 1px}) and (max-width: #{map.get($breakpoints, tablet)})";
+$tablet-up: "(min-width: #{map.get($breakpoints, tablet) + 1px})";
+$desktop: "(min-width: #{map.get($breakpoints, desktop)})";
+$desktop-large: "(min-width: #{map.get($breakpoints, desktop-large)})";
+
+// Responsive page widths and spacing
+$pageWidth: #{map.get($breakpoints, tablet)};
+$sidePanelWidth: 320px;
+$sidePanelWidthSmall: 280px; // For smaller tablets
+$topSpacing: 6rem;
+$topSpacingMobile: 3rem;
+$sidebarPaddingDesktop: 2rem;
+$sidebarPaddingMobile: 1rem;
+$boldWeight: 700;
+$semiBoldWeight: 600;
+$normalWeight: 400;
+
+// Enhanced grid layouts for better responsive behavior
+$mobileGrid: (
+  templateRows: "auto auto auto auto auto",
+  templateColumns: "auto",
+  rowGap: "1rem",
+  columnGap: "0",
+  templateAreas:
+    '"grid-header"\
+      "grid-sidebar-left"\
+      "grid-center"\
+      "grid-sidebar-right"\
+      "grid-footer"',
+);
+
+$tabletGrid: (
+  templateRows: "auto auto auto auto",
+  templateColumns: "#{$sidePanelWidthSmall} auto",
+  rowGap: "1rem",
+  columnGap: "1.5rem",
+  templateAreas:
+    '"grid-sidebar-left grid-header"\
+      "grid-sidebar-left grid-center"\
+      "grid-sidebar-left grid-sidebar-right"\
+      "grid-sidebar-left grid-footer"',
+);
+
+$desktopGrid: (
+  templateRows: "auto auto auto",
+  templateColumns: "#{$sidePanelWidth} auto #{$sidePanelWidth}",
+  rowGap: "1rem",
+  columnGap: "2rem",
+  templateAreas:
+    '"grid-sidebar-left grid-header grid-sidebar-right"\
+      "grid-sidebar-left grid-center grid-sidebar-right"\
+      "grid-sidebar-left grid-footer grid-sidebar-right"',
+);

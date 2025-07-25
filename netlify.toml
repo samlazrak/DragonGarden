@@ -1,0 +1,21 @@
+[build]
+  publish = "public"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[functions.ai-assistant]
+  included_files = ["netlify/functions/**/*"]
+
+[functions.gemini-assistant]
+  included_files = ["netlify/functions/**/*"] 

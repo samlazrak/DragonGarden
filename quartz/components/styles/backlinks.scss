@@ -1,0 +1,99 @@
+@use "../../styles/variables.scss" as *;
+
+.backlinks {
+  flex-direction: column;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--light);
+  border: 1px solid var(--lightgray);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  & > h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--darkgray);
+    margin: 0 0 0.8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    &::before {
+      content: "↩️";
+      font-size: 1rem;
+    }
+  }
+
+  & > ul.overflow {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overscroll-behavior: contain;
+    
+    // Only add scrolling constraints when there are many backlinks
+    &:has(li:nth-child(6)) {
+      max-height: 400px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gray) var(--light);
+      
+      // Custom scrollbar for webkit browsers
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      
+      &::-webkit-scrollbar-track {
+        background: var(--light);
+        border-radius: 3px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: var(--gray);
+        border-radius: 3px;
+        
+        &:hover {
+          background: var(--darkgray);
+        }
+      }
+    }
+
+    & > li {
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+      
+      &:hover {
+        background-color: var(--highlight);
+      }
+      
+      & > a {
+        background-color: transparent;
+        text-decoration: none;
+        color: var(--dark);
+        display: block;
+        
+        &:hover {
+          color: var(--secondary);
+        }
+      }
+    }
+  }
+}
+
+// Dark mode adjustments
+.darkmode .backlinks {
+  background-color: var(--light);
+  border-color: var(--lightgray);
+  
+  & > ul.overflow {
+    scrollbar-color: var(--gray) var(--light);
+    
+    & > li > a {
+      color: var(--dark);
+      
+      &:hover {
+        color: var(--secondary);
+      }
+    }
+  }
+}

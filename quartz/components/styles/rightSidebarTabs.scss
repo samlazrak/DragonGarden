@@ -1,0 +1,145 @@
+@use "../../styles/variables.scss" as *;
+
+.right-sidebar-tabs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 400px;
+  
+  .tab-header {
+    display: flex;
+    border-bottom: 1px solid var(--lightgray);
+    margin-bottom: 1rem;
+    
+    .tab-button {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      background: transparent;
+      color: var(--darkgray);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-radius: 8px 8px 0 0;
+      
+      &:hover {
+        background-color: var(--highlight);
+        color: var(--dark);
+      }
+      
+      &.active {
+        background-color: var(--light);
+        color: var(--dark);
+        border-bottom: 2px solid var(--secondary);
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .tab-content {
+    flex: 1;
+    overflow: hidden;
+    
+    .tab-panel {
+      display: none;
+      height: 100%;
+      
+      &.active {
+        display: block;
+      }
+      
+      // Remove the box styling from child components since we're wrapping them
+      .semantic-links,
+      .backlinks {
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        height: 100%;
+        max-height: 600px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--lightgray) transparent;
+        
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+        
+        &::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--lightgray);
+          border-radius: 3px;
+          
+          &:hover {
+            background-color: var(--gray);
+          }
+        }
+        
+        // Remove the individual headers since we have tabs
+        h3 {
+          display: none;
+        }
+        
+        // Fix semantic links footer
+        .semantic-links-footer {
+          margin-top: 1rem;
+          padding-top: 0.5rem;
+          border-top: 1px solid var(--lightgray);
+          
+          .semantic-links-note {
+            font-size: 0.75rem;
+            color: var(--gray);
+            font-style: italic;
+          }
+        }
+      }
+      
+      .semantic-links-container,
+      .backlinks ul.overflow {
+        max-height: 550px;
+        overflow-y: auto;
+      }
+    }
+  }
+}
+
+// Dark mode adjustments
+.darkmode .right-sidebar-tabs {
+  .tab-header {
+    border-bottom-color: var(--lightgray);
+    
+    .tab-button {
+      color: var(--darkgray);
+      
+      &:hover {
+        background-color: var(--highlight);
+        color: var(--dark);
+      }
+      
+      &.active {
+        background-color: var(--light);
+        color: var(--dark);
+        border-bottom-color: var(--secondary);
+      }
+    }
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .right-sidebar-tabs {
+    min-height: 300px;
+    
+    .tab-header {
+      .tab-button {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

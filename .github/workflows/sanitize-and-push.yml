@@ -1,0 +1,122 @@
+name: Sanitize and Push to Public Repo
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run in dry-run mode (no actual push)"
+        required: false
+        default: false
+        type: boolean
+      fast_mode:
+        description: "Use fast mode (skip confirmation, optimized git ops)"
+        required: false
+        default: true
+        type: boolean
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - ".github/**"
+      - "docs/**"
+      - "scripts/**"
+      - "tests/**"
+      - "content/**"
+      - "public/**"
+      - "api/**"
+      - "CLAUDE.md"
+      - "runner.sh"
+      - "runneroutput.log"
+      - "*.log"
+      - "debug_*.cjs"
+      - "test_*.cjs"
+      - "debug_*.css"
+      - "debug_*.js"
+      - "homebrew.mxcl.quartz.plist"
+      - "setup-launchagent.sh"
+      - "package-lock.json"
+      - ".npmrc"
+      - ".node-version"
+      - "vercel.json"
+      - ".env.example"
+      - "node_modules/**"
+      - ".quartz-cache/**"
+      - "coverage/**"
+      - ".nyc_output/**"
+      - "temp/**"
+      - "tmp/**"
+      - "*.tgz"
+      - "tsconfig.tsbuildinfo"
+      - "*.key"
+      - "*.pem"
+      - "*.p12"
+      - "*.pfx"
+      - "*.crt"
+      - "*.cert"
+      - "config.json"
+      - "secrets.json"
+      - "credentials.json"
+
+jobs:
+  sanitize-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for git operations
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          if [ -f "package-lock.json" ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Install TypeScript and tsx
+        run: npm install -g tsx
+
+      - name: Setup Git configuration
+        run: |
+          git config --global user.name "RatGarden Sanitizer"
+          git config --global user.email "sanitizer@ratgarden.local"
+
+      - name: Setup SSH for public repo
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PUBLIC_REPO_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Run sanitization
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+              npx tsx scripts/sanitize.ts --dry-run
+            elif [ "${{ github.event.inputs.fast_mode }}" = "true" ]; then
+              npx tsx scripts/sanitize.ts --fast
+            else
+              npx tsx scripts/sanitize.ts
+            fi
+          else
+            # Auto-triggered by push - use fast mode
+            npx tsx scripts/sanitize.ts --fast
+          fi
+        env:
+          GIT_SSH_COMMAND: ssh -o StrictHostKeyChecking=no
+
+      - name: Verify public repo was updated
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run != 'true'
+        run: |
+          echo "✅ Sanitization and push completed successfully!"
+          echo "Public repository: ${{ secrets.PUBLIC_REPO_URL || 'git@github.com:samlazrak/Digital-Garden.git' }}"
+          echo "Branch: main"

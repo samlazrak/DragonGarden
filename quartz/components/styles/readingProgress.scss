@@ -1,0 +1,195 @@
+.reading-progress {
+  &.position-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  &.position-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .reading-progress-bar {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(var(--lightgray-rgb), 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in-out;
+    
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .reading-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary), var(--tertiary));
+      width: 0%;
+      transition: width 0.1s ease-out;
+      border-radius: 0 2px 2px 0;
+    }
+    
+    .reading-progress-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: rgba(var(--light-rgb), 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--lightgray);
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+      
+      @media (max-width: 768px) {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+      }
+      
+      .reading-time {
+        color: var(--secondary);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        
+        @media (max-width: 480px) {
+          display: none; // Hide on very small screens to save space
+        }
+      }
+      
+      .time-remaining {
+        color: var(--darkgray);
+        font-weight: 400;
+        opacity: 0.8;
+        
+        @media (max-width: 768px) {
+          font-size: 0.75rem;
+        }
+      }
+    }
+    
+    &.visible .reading-progress-content {
+      transform: translateY(0);
+    }
+    
+    // Hover effect to show content
+    &:hover .reading-progress-content {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Alternative compact style for bottom position
+.reading-progress.position-bottom {
+  .reading-progress-bar {
+    height: 3px;
+    
+    .reading-progress-content {
+      top: auto;
+      bottom: 100%;
+      border-top: 1px solid var(--lightgray);
+      border-bottom: none;
+      transform: translateY(100%);
+      
+      &.visible,
+      .reading-progress-bar:hover & {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// Reading time display for content meta
+.content-reading-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--gray);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 0 0.5rem 0 0;
+  
+  &::before {
+    content: "📖";
+    font-size: 0.85rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+}
+
+// Dark mode adjustments
+@media (prefers-color-scheme: dark) {
+  .reading-progress {
+    .reading-progress-bar {
+      background-color: rgba(var(--darkgray-rgb), 0.3);
+      
+      .reading-progress-content {
+        background-color: rgba(var(--lightgray-rgb), 0.95);
+        border-color: var(--gray);
+      }
+    }
+  }
+}
+
+// Animation for smooth appearance
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Ensure progress bar appears above other fixed elements
+.reading-progress {
+  z-index: 9999;
+}
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress {
+    .reading-progress-bar {
+      transition: opacity 0.2s ease;
+      
+      .reading-progress-fill {
+        transition: width 0.05s linear;
+      }
+      
+      .reading-progress-content {
+        transition: transform 0.2s ease;
+      }
+    }
+  }
+}

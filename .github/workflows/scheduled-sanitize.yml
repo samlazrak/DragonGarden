@@ -1,0 +1,108 @@
+name: Scheduled Sanitize and Push
+
+on:
+  schedule:
+    # Run every Sunday at 2 AM UTC
+    - cron: "0 2 * * 0"
+  workflow_dispatch:
+    inputs:
+      force_run:
+        description: "Force run even if no changes detected"
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  check-for-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      has-changes: ${{ steps.check.outputs.has-changes }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for relevant changes
+        id: check
+        run: |
+          # Get the last commit date from the public repo
+          PUBLIC_REPO_URL="${{ secrets.PUBLIC_REPO_URL || 'git@github.com:samlazrak/Digital-Garden.git' }}"
+
+          # Setup SSH for checking public repo
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PUBLIC_REPO_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          # Clone public repo temporarily to check last commit
+          git clone --depth 1 $PUBLIC_REPO_URL /tmp/public-repo
+          cd /tmp/public-repo
+          PUBLIC_LAST_COMMIT=$(git log -1 --format="%H")
+          cd -
+
+          # Check if there are any changes since the last public commit
+          # Look for changes in source code files only (not content, docs, etc.)
+          RELEVANT_CHANGES=$(git log --oneline --since="1 week ago" -- quartz/ package.json package-lock.json quartz.config.ts quartz.layout.ts tsconfig.json globals.d.ts index.d.ts README.md .gitignore .gitattributes .prettierrc .prettierignore .npmrc .node-version Dockerfile | wc -l)
+
+          if [ "$RELEVANT_CHANGES" -gt 0 ] || [ "${{ github.event.inputs.force_run }}" = "true" ]; then
+            echo "has-changes=true" >> $GITHUB_OUTPUT
+            echo "✅ Changes detected or force run requested"
+          else
+            echo "has-changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No relevant changes detected"
+          fi
+
+  sanitize-and-push:
+    needs: check-for-changes
+    if: needs.check-for-changes.outputs.has-changes == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          if [ -f "package-lock.json" ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Install TypeScript and tsx
+        run: npm install -g tsx
+
+      - name: Setup Git configuration
+        run: |
+          git config --global user.name "RatGarden Scheduled Sanitizer"
+          git config --global user.email "scheduled-sanitizer@ratgarden.local"
+
+      - name: Setup SSH for public repo
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PUBLIC_REPO_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Run scheduled sanitization
+        run: npx tsx scripts/sanitize.ts --fast
+        env:
+          GIT_SSH_COMMAND: ssh -o StrictHostKeyChecking=no
+
+      - name: Log completion
+        run: |
+          echo "✅ Scheduled sanitization completed successfully!"
+          echo "Public repository: ${{ secrets.PUBLIC_REPO_URL || 'git@github.com:samlazrak/Digital-Garden.git' }}"
+          echo "Branch: main"
+          echo "Triggered by: ${{ github.event_name }}"

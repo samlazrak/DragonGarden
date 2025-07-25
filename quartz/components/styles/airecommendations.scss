@@ -1,0 +1,200 @@
+@use "../../styles/variables.scss" as *;
+
+// Define missing variables if not available
+$mobileBreakpoint: 600px !default;
+$fullPageWidth: 1200px !default;
+
+.ai-recommendations {
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  .recommendations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+    h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+    
+    .mode-selector {
+      display: flex;
+      gap: 0.25rem;
+      
+      .mode-btn {
+        background: var(--lightgray);
+        border: 1px solid var(--gray);
+        border-radius: 4px;
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        svg {
+          width: 16px;
+          height: 16px;
+          opacity: 0.6;
+          transition: opacity 0.2s ease;
+        }
+        
+        &:hover {
+          background: var(--gray);
+          
+          svg {
+            opacity: 0.8;
+          }
+        }
+        
+        &.active {
+          background: var(--secondary);
+          border-color: var(--secondary);
+          color: var(--light);
+          
+          svg {
+            opacity: 1;
+            stroke: var(--light);
+          }
+        }
+      }
+    }
+  }
+  
+  .recommendations-container {
+    min-height: 100px;
+    
+    .loading-spinner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      color: var(--gray);
+      
+      .spinner {
+        width: 30px;
+        height: 30px;
+        border: 3px solid var(--lightgray);
+        border-top-color: var(--secondary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 0.5rem;
+      }
+      
+      p {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+    }
+    
+    .no-recommendations {
+      text-align: center;
+      color: var(--gray);
+      padding: 2rem;
+      margin: 0;
+    }
+    
+    .recommendation-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      .recommendation-item {
+        margin-bottom: 0.75rem;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        .recommendation-link {
+          display: block;
+          padding: 0.75rem;
+          background: var(--lightgray);
+          border-radius: 6px;
+          text-decoration: none;
+          color: var(--dark);
+          transition: all 0.2s ease;
+          border: 1px solid transparent;
+          
+          &:hover {
+            background: var(--light);
+            border-color: var(--secondary);
+            transform: translateX(2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+          }
+          
+          h4 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+          }
+          
+          .recommendation-description {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.4;
+          }
+          
+          .recommendation-tags {
+            display: flex;
+            gap: 0.25rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+            
+            .tag {
+              font-size: 0.75rem;
+              padding: 0.15rem 0.4rem;
+              background: var(--light);
+              border: 1px solid var(--gray);
+              border-radius: 3px;
+              color: var(--darkgray);
+            }
+          }
+          
+          .recommendation-explanation {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .ai-recommendations {
+    .recommendations-header {
+      flex-direction: column;
+      gap: 0.75rem;
+      
+      h3 {
+        text-align: center;
+      }
+      
+      .mode-selector {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}
