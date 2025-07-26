@@ -39,4 +39,9 @@
 	
 - The size of a sculpture is always related to the size of oneself, or the human body. A meaning can be extrapolated from the size as well: big=important and small=unimportant. Or perhaps small asks for a more detailed look, while big demands attention.
 
+- Experiencing sculpture from the outer in, rather than inner out. That is, relying on the viewer's experience and thoughts rather than the artist's. External motivations and experiences placed onto the sculpture, rather than it giving these to the viewer.
+- 
+- ==Judith Collin's "Sculpture Today"==
+
+
 
