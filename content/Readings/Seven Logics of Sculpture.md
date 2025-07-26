@@ -1,0 +1,7 @@
+- "The visuality of painting can open up to the viewer only on the condition that the eye forgets the claims of the body" (13)
+	- the illusion masques the reality that one is actually looking at a canvas/piece of paper. Sculpture avoids this, but not entirely. Michaelangelo's David, for example, if the eye forgets, is the depiction of a man, but it is still only marble. Still, it is closer to the body's perception of a man than a painting.
+	- summary of Kenan's "Touching Sculpture"
+- "Viewer and sculpture partake of the same world or dimension" (13)
+- "Sculptures are experienced through the possibility that they will enter and become active in our world...the viewer's body des not become seperated, taking instead an active role in imaginatively relating to them." (13)
+- 
+- 

@@ -1,0 +1,14 @@
+- **Haptic epistemology** - Knowledge production through touch, challenging ocularcentrism
+- **Somatic archaeology** - Excavating bodily memories through material processes
+- **Abject sublime** - Beauty found in the rejected, transcendence through degradation
+- **Corporeal cartography** - Mapping trauma's topographies on/through flesh
+-  **Vulnerable monumentality** - Soft materials claiming space traditionally reserved for bronze/marble
+- **Processual embodiment** - The making as important as the made
+- **Affective accumulation** - Emotional residue building through repetitive actions
+-  **Feminine grotesque** - Reclaiming the monstrous-feminine as site of power
+- **Intimate warfare** - Domestic materials weaponized against patriarchal structures
+- **Salvage poetics** - Redemptive practices with discarded materials/bodies
+- **Reparative destruction** - Taking apart to understand and heal
+- **Archival flesh** - Bodies as repositories of collective memory
+-  **Morphological rebellion** - Form refusing categorization
+- **Alchemical abjection** - Transmuting base materials into philosophical gold

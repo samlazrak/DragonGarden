@@ -1,7 +1,10 @@
 ---
 title: Welcome to The Dragon's Garden
-description: A digital garden exploring AI, medicine, art, and technology through the lens of research and creativity.
-tags: [digital-garden, ai, medicine, art, research, technology]
+description: A digital garden exploring themes related to my art, primarily body politics.
+tags:
+  - digital-garden
+  - art
+  - research
 ---
 
 <!-- Quartz Graph Connectivity Links - Multiple Methods for Maximum Compatibility -->
@@ -23,7 +26,7 @@ tags: [digital-garden, ai, medicine, art, research, technology]
 
 # Welcome to The Dragon's Garden 🐉
 
-Welcome to my digital garden—a living collection of thoughts, research, and creative explorations at the intersection of AI, medicine, art, and technology. This space serves as both a personal knowledge repository and a window into the interdisciplinary work bridging creative practice with academic inquiry.
+Welcome to my digital garden — a living collection of thoughts, research, and creative explorations on the body and its intertwining with philosophies, perceptions, expectations, effects on the mind and others. This space serves as both a personal knowledge repository and a window into the interdisciplinary work bridging creative practice with academic inquiry.
 
 ## About Kayla Lazrak
 
@@ -40,14 +43,6 @@ My artistic practice centers on **body image research and embodied perspectives*
 - Creative practice as research methodology
 - Material culture and identity formation
 
-### Current Academic Pathway
-
-I am pursuing graduate studies that bridge art and academia, with particular interest in PhD programs that embrace embodied perspectives:
-
-- **Psychology Programs**: Arizona State University's Body Image Research and Health Disparities Lab, University of North Carolina at Charlotte's multicultural feminist approaches
-- **Anthropology Programs**: UC Berkeley/UCSF's Joint PhD in Medical Anthropology, Harvard's Media Anthropology program
-- **Interdisciplinary Options**: California Institute of Integral Studies' PhD in Psychology with Somatic Psychology Concentration
-
 ### Professional Experience
 
 **Current Positions:**
@@ -61,11 +56,6 @@ I am pursuing graduate studies that bridge art and academia, with particular int
 - *Limited Palette*, The Kavanagh Gallery, St. Charles, IL
 - *Blick Ars Nova Show*, Jack Olsen Gallery, Dekalb, IL (Juror: Olivia Zubko)
 - *Unimposing yet Dignified*, George H. Gurler House, Dekalb, IL
-
-**Academic Honors:**
-- UAB Provost Scholarship Recipient (Fall 2018 - Fall 2022)
-- Honors College Student with Presidential Honors (3 semesters)
-- Distinguished Honors graduate
 
 ## Research Philosophy: Art as Academic Inquiry
 
