@@ -5,7 +5,7 @@ import { classNames } from "../util/lang"
 const PageTitle: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
   const baseDir = pathToRoot(fileData.slug!)
   const title = fileData.frontmatter?.title
-  // Use the rat.jpg in static as the logo, with an absolute path
+  // Use the dragon.png in static as the logo, with an absolute path
   // Make it a circle and 200% bigger than before (height/width 8.8em)
   return (
     <div class={classNames(displayClass, "page-title-container")}>
@@ -16,7 +16,7 @@ const PageTitle: QuartzComponent = ({ fileData, displayClass }: QuartzComponentP
       >
         <a href={baseDir} style={{ display: "flex", alignItems: "center" }}>
           <img
-            src="/static/rat.jpg"
+            src="/static/dragon.png"
             alt="Site Icon"
             style={{
               height: "8.8em",

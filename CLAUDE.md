@@ -25,7 +25,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **Quartz 4** static site generator project for "The Rat's Garden" - a personal digital garden website. Quartz transforms Markdown content into a fully functional website with features like graph visualization, search, backlinks, and responsive design.
+This is a **Quartz 4** static site generator project for "The Dragon's Garden" - a personal digital garden website. Quartz transforms Markdown content into a fully functional website with features like graph visualization, search, backlinks, and responsive design.
 
 **Key Features**:
 
@@ -63,12 +63,6 @@ This is a **Quartz 4** static site generator project for "The Rat's Garden" - a 
 - `npm run clear-semantic-cache` - Clear the semantic link cache
 - `npm run sanitize` - Run sanitization process for public repository
 - `npm run push-with-sanitize` - Push changes with automatic sanitization
-- `npm run claude-daily` - Run daily Claude efficiency tracking
-- `npm run claude-track` - Track token usage for efficiency analysis
-- `npm run claude-report` - Generate efficiency reports
-- `npm run claude-setup` - Setup Claude Code environment
-- `npm run claude-mcp` - Setup MCP servers
-- `npm run claude-init` - Initialize knowledge base
 - `npm run claude-autopilot-setup` - Setup and configure Claude Autopilot integration
 
 ## Architecture Overview
@@ -230,26 +224,6 @@ The site uses carefully configured plugins for:
 - **Skip agents** for simple tasks (low ROI)
 - **Use for specialized work** only
 
-## Knowledge Base Integration
-
-### Local Knowledge Base
-
-- **Database**: `~/.claude-knowledge/db/claude-knowledge.db` for contexts and solutions
-- **Purpose**: Gather intelligence to help Claude use fewer tokens
-- **Usage**: Search before implementing, save patterns after success
-
-### Essential Scripts (`.claude-scripts/`)
-
-- **save-context.sh**: Save project context to database
-- **load-context.sh**: Load previous project context
-- **track-tokens.sh**: Track token usage for efficiency analysis
-
-### Templates (`.claude-templates/`)
-
-- **React/Preact**: `.claude-templates/react/component.tsx`
-- **Python**: `.claude-templates/python/class.py`
-- **Node.js**: `.claude-templates/node/component.js`
-
 ## Efficiency Targets
 
 - **Minimum 25% token savings** through optimization
@@ -297,7 +271,7 @@ The site uses carefully configured plugins for:
 - `Claude: Stop Claude Autopilot` - Stop processing and close session
 - `Claude: Add Message to Queue` - Add new task to processing queue
 
-### Integration with RatGarden
+### Integration with DragonGarden
 
 - **Automated Testing**: Queue comprehensive test generation for AI components
 - **TypeScript Conversion**: Convert remaining JavaScript files to TypeScript
@@ -308,10 +282,6 @@ The site uses carefully configured plugins for:
 
 ### Configuration Files
 
-- `.claude-autopilot-queue.json` - Task queue configuration (auto-generated)
-- `.vscode/extensions.json` - Extension recommendations
-- `.vscode/settings.json` - Claude Autopilot settings
-- `.vscode/tasks.json` - Task definitions
 - `Claude-Autopilot/` - Full extension source code and documentation
 
 ### Best Practices

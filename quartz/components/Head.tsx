@@ -25,7 +25,7 @@ export default (() => {
     const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
     const path = url.pathname as FullSlug
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
-    const iconPath = joinSegments(baseDir, "static/rat.jpg")
+    const iconPath = joinSegments(baseDir, "static/dragon.png")
 
     // Url of current page
     const socialUrl =
@@ -34,7 +34,7 @@ export default (() => {
     const usesCustomOgImage = ctx.cfg.plugins.emitters.some(
       (e) => e.name === CustomOgImagesEmitterName,
     )
-    const ogImageDefaultPath = `https://${cfg.baseUrl}/static/rat.jpg`
+    const ogImageDefaultPath = `https://${cfg.baseUrl}/static/dragon.png`
 
     return (
       <head>
@@ -84,7 +84,7 @@ export default (() => {
 
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
-        <meta name="generator" content="The Rat's Garden - Powered by Quartz" />
+        <meta name="generator" content="The Dragon's Garden - Powered by Quartz" />
 
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
         {js

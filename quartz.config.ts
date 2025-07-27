@@ -1,7 +1,7 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 import { getSemanticLinkPluginConfig } from "./quartz/plugins/emitters/semanticLinkConfig"
-import { ratsGardenImage } from "./quartz/util/customOgImage"
+import { dragonsGardenImage } from "./quartz/util/customOgImage"
 
 /**
  * Quartz 4 Configuration
@@ -10,7 +10,7 @@ import { ratsGardenImage } from "./quartz/util/customOgImage"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "The Rat's Garden",
+    pageTitle: "The Dragon's Garden",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -105,7 +105,7 @@ const config: QuartzConfig = {
         width: 1200,
         height: 630,
         excludeRoot: false,
-        imageStructure: ratsGardenImage,
+        imageStructure: dragonsGardenImage,
       }),
     ],
   },

@@ -4,8 +4,8 @@ import { i18n } from "../i18n"
 import { SocialImageOptions } from "./og"
 import { getFontSpecificationName } from "./theme"
 
-// Custom OG image template for The Rat's Garden
-export const ratsGardenImage: SocialImageOptions["imageStructure"] = ({
+// Custom OG image template for The Dragon's Garden
+export const dragonsGardenImage: SocialImageOptions["imageStructure"] = ({
   cfg,
   userOpts,
   title,
@@ -60,7 +60,7 @@ export const ratsGardenImage: SocialImageOptions["imageStructure"] = ({
         }}
       />
 
-      {/* Header Section with Rat Logo */}
+      {/* Header Section with Dragon Logo */}
       <div
         style={{
           display: "flex",
@@ -98,7 +98,7 @@ export const ratsGardenImage: SocialImageOptions["imageStructure"] = ({
               fontFamily: headerFont,
             }}
           >
-            The Rat's Garden
+            The Dragon's Garden
           </div>
           <div
             style={{
