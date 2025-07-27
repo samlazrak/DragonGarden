@@ -42,7 +42,7 @@ Contains configuration for:
 
 - Environment files (`.env*`)
 - Private content (`content/`, `api/`)
-- Development files (`.vscode/`, `.claude/`)
+- Development files (`.vscode/`)
 - Build artifacts (`public/`, `.quartz-cache/`)
 - Sensitive configuration files
 

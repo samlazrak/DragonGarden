@@ -218,7 +218,7 @@ class AIWritingAssistant {
       },
     }
 
-    // Generate more realistic Gemini-style responses based on actual text content
+    // Generate more realistic AI responses based on actual text content
     const textLower = text.toLowerCase()
     const words = text.split(" ")
 

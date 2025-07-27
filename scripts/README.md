@@ -1,12 +1,8 @@
 # Scripts Directory
 
-This directory contains organized scripts for the RatGarden project, grouped by functionality.
+This directory contains organized scripts for the DragonGarden project, grouped by functionality.
 
 ## Directory Structure
-
-### `/claude/` - Claude AI Integration
-
-Scripts for Claude Code CLI, MCP servers, token tracking, and efficiency optimization.
 
 ### `/dev/` - Development Tools
 
@@ -23,9 +19,6 @@ General utility scripts and CLI tools.
 ## Quick Commands
 
 ```bash
-# Claude efficiency tracking
-./scripts/claude/daily-efficiency.sh
-
 # Development with drafts
 npm run dev-with-drafts
 
@@ -37,13 +30,6 @@ npm run generate-graph-links
 ```
 
 ## Script Categories
-
-### Claude AI Scripts
-
-- Token efficiency tracking and optimization
-- MCP server setup and management
-- Daily efficiency reporting
-- Knowledge base initialization
 
 ### Development Scripts
 

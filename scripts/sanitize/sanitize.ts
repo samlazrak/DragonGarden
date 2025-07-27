@@ -62,7 +62,7 @@ class RepositorySanitizer {
         ".env*",
         "*.env",
         ".vscode/",
-        ".claude/",
+
         ".idea/",
         "debug_*.cjs",
         "test_*.cjs",
@@ -70,7 +70,7 @@ class RepositorySanitizer {
         "debug_*.js",
         "homebrew.mxcl.quartz.plist",
         "setup-launchagent.sh",
-        "CLAUDE.md",
+
         "docs/CURSOR.md",
         "docs/DRAFT_MANAGEMENT.md",
         "runner.sh",
@@ -114,8 +114,7 @@ class RepositorySanitizer {
         "secret",
         "password",
         "token",
-        "OPENAI_API_KEY",
-        "ANTHROPIC_API_KEY",
+
         "sk-[a-zA-Z0-9]*",
         "sk-ant-[a-zA-Z0-9]*",
       ],
@@ -313,7 +312,6 @@ api-keys/
 
 # IDE and development-specific directories
 .vscode/
-.claude/
 .idea/
 
 # Development and debug files
@@ -325,7 +323,6 @@ homebrew.mxcl.quartz.plist
 setup-launchagent.sh
 
 # Internal documentation and conversation logs
-CLAUDE.md
 CURSOR.md
 DRAFT_MANAGEMENT.md
 

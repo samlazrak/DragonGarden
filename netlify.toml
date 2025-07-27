@@ -14,8 +14,4 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
-[functions.ai-assistant]
-  included_files = ["netlify/functions/**/*"]
-
-[functions.gemini-assistant]
-  included_files = ["netlify/functions/**/*"] 
+ 

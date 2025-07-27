@@ -33,7 +33,7 @@ credentials.json
 
 ```
 .vscode/                     # VS Code settings
-.claude/                     # Claude AI conversation logs
+
 .idea/                       # IntelliJ/WebStorm settings
 debug_*.cjs                  # Debug files
 test_*.cjs
@@ -46,7 +46,7 @@ setup-launchagent.sh         # Launch agent setup script
 ### Internal Documentation
 
 ```
-CLAUDE.md                    # Claude conversation logs
+
 CURSOR.md                    # Cursor IDE documentation
 DRAFT_MANAGEMENT.md          # Draft management notes
 ```
@@ -121,8 +121,7 @@ The sanitization script removes these patterns from file contents using regex:
 api_key
 apiKey
 API_KEY
-OPENAI_API_KEY
-ANTHROPIC_API_KEY
+
 sk-[a-zA-Z0-9]*              # OpenAI API keys
 sk-ant-[a-zA-Z0-9]*          # Anthropic API keys
 ```
@@ -153,7 +152,7 @@ api-keys/
 
 # IDE and development-specific directories
 .vscode/
-.claude/
+
 .idea/
 
 # Development and debug files
@@ -165,7 +164,7 @@ homebrew.mxcl.quartz.plist
 setup-launchagent.sh
 
 # Internal documentation and conversation logs
-CLAUDE.md
+
 CURSOR.md
 DRAFT_MANAGEMENT.md
 

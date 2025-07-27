@@ -22,15 +22,6 @@ export const sharedPageComponents: SharedLayout = {
   ],
   afterBody: [
     Component.ConditionalRender({
-      component: Component.HomepageBio({
-        showAvatar: true,
-        showSocialLinks: true,
-        showCurrentFocus: true,
-        showQuickLinks: true,
-      }),
-      condition: (page) => page.fileData.slug === "index",
-    }),
-    Component.ConditionalRender({
       component: Component.FeaturedContent({
         title: "Featured Content",
         limit: 6,
@@ -52,9 +43,8 @@ export const sharedPageComponents: SharedLayout = {
     Component.PrivacyAnalytics(),
     Component.AIWritingAssistant({
       features: ["grammar", "style", "suggestions", "completion"],
-      provider: "gemini",
+      provider: "mock",
       position: "floating",
-      apiEndpoint: "/.netlify/functions/gemini-assistant",
     }),
   ],
   footer: Component.Footer({

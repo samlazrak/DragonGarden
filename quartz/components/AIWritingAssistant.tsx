@@ -5,7 +5,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 
 export interface AIWritingAssistantOptions {
   features: ("grammar" | "style" | "suggestions" | "completion" | "summarize")[]
-  provider: "openai" | "anthropic" | "gemini" | "local" | "mock"
+  provider: "openai" | "anthropic" | "local" | "mock"
   cacheStrategy: "aggressive" | "moderate" | "none"
   position?: "floating" | "inline"
   apiEndpoint?: string

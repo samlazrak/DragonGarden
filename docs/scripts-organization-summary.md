@@ -11,17 +11,7 @@ The `scripts/` directory was becoming messy and difficult to navigate with files
 ```
 scripts/
 ├── README.md                 # Main documentation
-├── claude/                   # Claude AI Integration
-│   ├── README.md
-│   ├── daily-efficiency.sh
-│   ├── token-efficiency-tracker.cjs
-│   ├── init-knowledge-base.sh
-│   ├── setup-claude-code.sh
-│   ├── setup-mcp-servers.sh
-│   ├── claude-token-monitor.py
-│   └── claude-hooks/
-│       ├── pre-command.sh
-│       └── post-command.sh
+
 ├── dev/                      # Development Tools
 │   ├── README.md
 │   ├── dev-with-drafts.ts
@@ -46,7 +36,7 @@ scripts/
 ### **Files Removed During Cleanup**
 
 - **Redundant files**: `token-efficiency-tracker.js` (ES module version)
-- **Old documentation**: `claude-efficiency-guide.md` (replaced by v2)
+
 - **Obsolete API**: `ai-assistant.js` (replaced by enhanced version)
 - **Debug files**: All `debug_*.cjs`, `debug_*.css` files
 - **Test files**: All `test_*.cjs` files
@@ -65,13 +55,7 @@ scripts/
   "push-with-sanitize": "npx tsx scripts/sanitize/push-with-sanitize.ts",
   "test-sanitization": "npx tsx scripts/sanitize/test-sanitization.ts",
   "sanitize": "npx tsx scripts/sanitize/sanitize.ts",
-  "cli": "npx tsx scripts/utils/cli.ts",
-  "claude-daily": "./scripts/claude/daily-efficiency.sh",
-  "claude-track": "node scripts/claude/token-efficiency-tracker.cjs track",
-  "claude-report": "node scripts/claude/token-efficiency-tracker.cjs report",
-  "claude-setup": "./scripts/claude/setup-claude-code.sh",
-  "claude-mcp": "./scripts/claude/setup-mcp-servers.sh",
-  "claude-init": "./scripts/claude/init-knowledge-base.sh"
+  "cli": "npx tsx scripts/utils/cli.ts"
 }
 ```
 
@@ -102,22 +86,6 @@ scripts/
 - **Improved developer experience**
 
 ## 🚀 **Usage Examples**
-
-### **Claude AI Scripts**
-
-```bash
-# Daily efficiency report
-npm run claude-daily
-
-# Track token usage
-npm run claude-track "Task description" 1000 300 "method" "sub-agent"
-
-# Generate efficiency report
-npm run claude-report
-
-# Setup Claude system
-npm run claude-setup
-```
 
 ### **Development Scripts**
 
@@ -167,7 +135,7 @@ npm run clear-semantic-cache
 
 ### **Adding New Scripts**
 
-1. **Identify the category** (claude, dev, sanitize, utils)
+1. **Identify the category** (dev, sanitize, utils)
 2. **Place in appropriate directory**
 3. **Update the directory README**
 4. **Add npm script if needed**

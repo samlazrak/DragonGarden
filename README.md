@@ -189,20 +189,21 @@ The writing assistant currently uses mock responses. To enable real AI:
 
 ```typescript
 Component.AIWritingAssistant({
-  provider: "gemini", // or "openai", "anthropic"
+  provider: "openai", // or "anthropic", "local", "mock"
   apiEndpoint: "/api/ai-assistant",
 })
 ```
 
-#### Gemini Setup (Recommended)
+#### AI Provider Setup
 
-The AI assistant is now configured to use Google's Gemini API by default. To set it up:
+The AI assistant supports multiple providers. To set it up:
 
-1. Get a Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Create a `.env` file with: `GEMINI_API_KEY=your_api_key_here`
-3. Deploy with the environment variable set
+1. Choose your preferred AI provider (OpenAI, Anthropic, or local models)
+2. Get an API key from your chosen provider
+3. Create a `.env` file with your API key
+4. Deploy with the environment variable set
 
-See [docs/gemini-setup.md](docs/gemini-setup.md) for detailed setup instructions.
+See the documentation for detailed setup instructions for your chosen provider.
 
 ## Key Technologies
 
