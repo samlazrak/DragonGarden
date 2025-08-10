@@ -24,7 +24,7 @@ on:
       - "content/**"
       - "public/**"
       - "api/**"
-      - "CLAUDE.md"
+
       - "runner.sh"
       - "runneroutput.log"
       - "*.log"

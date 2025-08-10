@@ -44,4 +44,10 @@
 - ==Judith Collin's "Sculpture Today"==
 
 
+**The Body Undone**
+
+- Classical period through end of nineteenth century - sculpture was based on unity of inner and outer beauty/perfection. The appearance of the outer body and the inner emotions could not be seen separately. 
+	- Alberto Giacometti thought the inner and outer were actually disconnected.
+
+
 

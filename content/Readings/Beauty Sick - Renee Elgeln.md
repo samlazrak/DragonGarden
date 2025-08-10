@@ -5,7 +5,8 @@
 	
 - Laura Mulvey argued the essence of a woman could be described as "to-be-looked-at-ness." (Visual Pleasure and Narrative Cinema)
 	- "Women then stands in a patriarchal culture as signifier for the male other, bound by a symbolic order in which man can live out his phantasies and obsessions through linguistic command by imposing them on the silent image of woman still tied to her place as bearer of meaning, not maker of meaning." (Mulvey, 804)
-	- "In a world ordered by sexual imbalance, pleasure in looking has been split between active/male and passive/female. The determinding male gaze projects its fantasy onto the female figure. In their traditional exhibitionist role, women are simulaneously looked at and displayed, with their appearance coded for strong visual and erotic impact so that they can be said to connote *to-be-looked-at-ness.*" (Mulvey, 811)
+	- "In a world ordered by sexual imbalance, pleasure in looking has been split between active/male and passive/female. The determinding male gaze projects its fantasy onto the female figure. In their traditional exhibitionist role, women are simulaneously looked at and displayed, with their appearance coded for strong visual and erotic impact so that they can be said to connote *to-be-looked-at-ness.*" (Mulvey, 811Jesuisserpent118!
+	- )
 		- and over time women themselves have internalized this male gaze - Margaret Atwood "You are a woman with a man inside watching a woman. You are your own voyeur." (The Robber Bride)
 - In a sample of several hundred eighteen and nineteen year old women around the US, Elgeln conducted an online survey where over 40% of these young women said they "frequently" or "almost always" felt like someone was evaluating their appearance. "They felt on display... this feeling isn't a sign of neurosis or paranoia; it just signals that a girl or woman is paying attention to the world around her and being affected by the lessons she learns about her body." (44)
 
